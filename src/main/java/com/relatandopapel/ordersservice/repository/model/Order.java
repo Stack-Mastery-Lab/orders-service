@@ -1,4 +1,4 @@
-package com.relatandopapel.Repository.Model;
+package com.relatandopapel.ordersservice.repository.model;
 
 import jakarta.persistence.*;
 import lombok.*;

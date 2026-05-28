@@ -1,4 +1,4 @@
-package com.relatandopapel.controller.model;
+package com.relatandopapel.ordersservice.controller.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonPropertyOrder({ "name", "status", "total", "order_date" })
-public class CreateOrderResponseDTO {
+public class CreateOrderResponseDto {
     private static final long serialVersionUID = 1L;
 
     @JsonProperty("name")

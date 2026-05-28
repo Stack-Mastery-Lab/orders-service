@@ -1,4 +1,4 @@
-package com.relatandopapel.config;
+package com.relatandopapel.ordersservice.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

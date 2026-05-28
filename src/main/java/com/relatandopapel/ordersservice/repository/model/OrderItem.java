@@ -1,6 +1,4 @@
-package com.relatandopapel.Repository.Model;
-
-import java.math.BigDecimal;
+package com.relatandopapel.ordersservice.repository.model;
 
 import jakarta.persistence.*;
 import lombok.*;

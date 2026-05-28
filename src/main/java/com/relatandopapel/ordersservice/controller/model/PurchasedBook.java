@@ -1,4 +1,4 @@
-package com.relatandopapel.controller.model;
+package com.relatandopapel.ordersservice.controller.model;
 
 import java.io.Serial;
 

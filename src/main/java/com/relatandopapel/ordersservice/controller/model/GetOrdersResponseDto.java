@@ -1,4 +1,4 @@
-package com.relatandopapel.controller.model;
+package com.relatandopapel.ordersservice.controller.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonPropertyOrder({ "orders" })
-public class GetOrdersResponseDTO {
+public class GetOrdersResponseDto {
 
     @Serial
     private final static long serialVersionUID = -8949888676747079614L;
