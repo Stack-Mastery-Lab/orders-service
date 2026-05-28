@@ -3,20 +3,21 @@ server:
 
 spring:
   application:
-    name: orders
-
+    name: orders-service
   datasource:
     url: jdbc:postgresql://localhost:5432/db_orders
-    username: admin
+    username: postgres
     password: admin
+    driver-class-name: org.postgresql.Driver
   jpa:
+    open-in-view: false
     show-sql: true
     hibernate:
-      ddl-auto: validate
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 logging:
   level:
@@ -26,10 +27,10 @@ logging:
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
   instance:
     preferIpAddress: true
-    hostname: orders
+    hostname: orders-service
 
 catalogue:
-  url: ${CATALOGUE_URL:http://catalogue/api/v1}
+  url: ${CATALOGUE_URL:http://catalogue-service/api/v1}
