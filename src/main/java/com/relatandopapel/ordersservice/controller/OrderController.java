@@ -12,21 +12,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController                         // ← Era @Service, estaba mal
-@RequestMapping("/api/v1/orders")             // ← Faltaba esta anotación
+@RestController
+@RequestMapping("/api/v1/orders")
 @RequiredArgsConstructor
 public class OrderController {
 
     private final CreateOrdersService createOrdersService;
     private final GetOrdersService getOrdersService;
 
-    // GET /api/v1/orders?owner_id=1
+
     @GetMapping()
     public ResponseEntity<GetOrdersResponseDto> getRecentOrders(
     @RequestParam("owner_id") Integer ownerId) {
         return ResponseEntity.ok(getOrdersService.getRecentOrders(ownerId));
     }
-    // POST /api/v1/orders
+
     @PostMapping()
     public ResponseEntity<CreateOrderResponseDto> createOrder(
             @Valid @RequestBody CreateOrderRequestDto request) {

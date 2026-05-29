@@ -7,7 +7,7 @@ import java.util.List;
 
 @Repository
 public interface OrderJpaRepository extends JpaRepository<Order, Integer> {
-    List<Order> findByOwnerId(Integer ownerId);
 
+    List<Order> findByOwnerId(Integer ownerId);
     List<Order> findByOwnerIdOrderByOrderDateDesc(Integer ownerId);
 }

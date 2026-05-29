@@ -37,7 +37,6 @@ public class CatalogueFacade {
         }
     }
 
-    // Descuenta stock en catalogue-service (solo para libros físicos)
     public void updateBookStock(Integer bookId, Integer newStock) {
         try {
             webClientBuilder.build()

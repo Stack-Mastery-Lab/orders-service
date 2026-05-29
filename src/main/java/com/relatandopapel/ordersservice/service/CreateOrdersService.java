@@ -63,7 +63,6 @@ public class CreateOrdersService {
         bookOrderItemMap.values().forEach(item -> item.setOrder(order));
         Order savedOrder = orderJpaRepository.save(order);
 
-        // Descontar stock solo para libros físicos, DESPUÉS de guardar la orden
         for (Map.Entry<BookDto, OrderItem> entry : bookOrderItemMap.entrySet()) {
             BookDto book = entry.getKey();
             OrderItem item = entry.getValue();
@@ -71,7 +70,6 @@ public class CreateOrdersService {
                 int newStock = book.getStock() - item.getQuantity();
                 catalogueFacade.updateBookStock(book.getId(), newStock);
             }
-            // Los libros digitales no tienen stock limitado → no se hace nada
         }
 
         return CreateOrderResponseDto.builder()
@@ -100,7 +98,6 @@ public class CreateOrdersService {
                     "El libro '" + book.getTitle() + "' (ID " + requestedBook.getBookId()
                             + ") no está disponible para compra.");
         }
-        // Validar stock suficiente para libros físicos
         if (book.isPhysical()) {
             if (book.getStock() == null || book.getStock() < requestedBook.getQuantity()) {
                 throw new BadOrderException(
