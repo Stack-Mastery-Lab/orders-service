@@ -5,9 +5,9 @@ spring:
   application:
     name: orders-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_orders
-    username: postgres
-    password: admin
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/db_orders}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:admin}
     driver-class-name: org.postgresql.Driver
   jpa:
     open-in-view: false
@@ -31,8 +31,13 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
   instance:
-    hostname: orders-service
-    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}:${eureka.instance.non-secure-port}
+    prefer-ip-address: false
+    hostname: ${HOST_NAME:catalogue-service-production.up.railway.app}
+    non-secure-port: 80
+    secure-port: 443
+    non-secure-port-enabled: true
+    secure-port-enabled: false
 
 catalogue:
   url: ${CATALOGUE_URL:http://catalogue-service/api/v1}
